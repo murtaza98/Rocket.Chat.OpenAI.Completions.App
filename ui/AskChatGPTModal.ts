@@ -27,21 +27,30 @@ export function createAskChatGPTModal(
         element: blocks.newPlainTextInputElement({
             actionId: "instruction",
             initialValue: initialInstruction,
+            placeholder: blocks.newPlainTextObject(
+                "Eg: Can you please reply to this message?"
+            ),
         }),
     });
 
     blocks.addInputBlock({
         blockId: AppSetting.NAMESPACE + "_ask_chatgpt",
         label: {
-            text: `Prompt`,
+            text: `Message Context`,
             type: TextObjectType.PLAINTEXT,
         },
         element: blocks.newPlainTextInputElement({
             actionId: "suggested_prompt",
             initialValue: initialPrompt,
-            multiline: true,
         }),
     });
+    blocks.addContextBlock({
+        elements: [
+            blocks.newMarkdownTextObject(
+                "Your selected message context has been copied here."
+            ),
+        ],
+    })
 
     // define output options
     var answer_options = [

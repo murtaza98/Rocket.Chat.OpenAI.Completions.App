@@ -2,7 +2,7 @@
     "OpenAIChat_API_KEY_LABEL": "API KEY",
     "OpenAIChat_ORG_LABEL": "Organization (Optional)",
     "OpenAIChat_MAX_TOKENS_LABEL": "Max tokens to return",
-    "OpenAIChat_AskChatGPT": "Ask ChatGPT",
+    "OpenAIChat_AskChatGPT": "💡 Ask ChatGPT",
     "OpenAIChat_SlashCommand_Description": "Ask ChatGPT",
     "OpenAIChat_TEMPERATURE_LABEL": "Temperature (Defaults to 1)",
     "OpenAIChat_DEFAULT_SYSTEM_INSTRUCTION_LABEL": "System Instruction (how the ChatGPT should behave)"

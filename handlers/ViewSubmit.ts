@@ -99,48 +99,17 @@ export class ViewSubmitHandler {
                                     .content as string;
                                 // remove initial break lines
                                 content = content.replace(/^\s*/gm, "");
-                                var before_message = `**Instruction**: ${instruction}\n**Prompt**: ${prompt}`;
-                                var message = before_message + "\n" + content;
+                                var message = content;
 
                                     switch (output_mode) {
-                                        case "notification":
+                                        default:
                                             sendNotification(
                                                 modify,
                                                 room,
                                                 user,
-                                                before_message + message,
-                                                thread_id
-                                            );
-                                            break;
-
-                                        case "direct":
-                                            sendDirect(
-                                                user,
-                                                read,
-                                                modify,
-                                                message
-                                            );
-                                            break;
-
-                                        case "thread":
-                                            sendMessage(
-                                                modify,
-                                                room,
                                                 message,
-                                                undefined,
-                                                thread_id
+                                                // thread_id
                                             );
-                                            break;
-
-                                        case "message":
-                                            sendMessage(
-                                                modify,
-                                                room,
-                                                message
-                                            );
-                                            break;
-
-                                        default:
                                             break;
                                     }
                                 }

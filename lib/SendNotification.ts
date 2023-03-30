@@ -1,5 +1,6 @@
 import { IModify } from "@rocket.chat/apps-engine/definition/accessors";
 import { IRoom } from "@rocket.chat/apps-engine/definition/rooms";
+import { ButtonStyle } from "@rocket.chat/apps-engine/definition/uikit";
 import { IUser } from "@rocket.chat/apps-engine/definition/users";
 
 
@@ -26,6 +27,16 @@ export async function sendNotification(
     block.addSectionBlock({
         text: block.newMarkdownTextObject(message),
     });
+
+    block.addActionsBlock({
+        elements: [
+            block.newButtonElement({
+                text: block.newPlainTextObject('⚡️ Copy to input box'),
+                actionId: 'use_this_message',
+                style: ButtonStyle.PRIMARY,
+            }),
+        ],
+    })
 
     // now let's set the blocks in our message
     msg.setBlocks(block);
